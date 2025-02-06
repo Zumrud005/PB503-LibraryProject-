@@ -44,6 +44,7 @@ namespace LibraryProject.Services.Implementation
                 UpdateAt = DateTime.UtcNow.AddHours(4),
                 Authors = new List<Author>()
             };
+           
 
             _bookRepository.Add(book);
             _bookRepository.Commit();

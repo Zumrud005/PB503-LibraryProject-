@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace LibraryProject.DTOs.BorrowerDto
 {
-    internal class BorrowerCreateDto
+    public class BorrowerCreateDto
     {
+        public string Name { get; set; }
+        public string Email { get; set; } 
     }
 }

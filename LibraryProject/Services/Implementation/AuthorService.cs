@@ -29,8 +29,7 @@ namespace LibraryProject.Services.Implementation
 
             if (string.IsNullOrWhiteSpace(authorDto.Name)) throw new ArgumentException("Author name cannot be empty.");
 
-            //var books = _bookRepository.GetByIds(authorDto.BookIds);
-            //if (books is null || !books.Any()) throw new InvalidOperationException("At least one valid book must be selected.");
+            
 
             var author = new Author
             {

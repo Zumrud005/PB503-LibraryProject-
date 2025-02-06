@@ -4011,11 +4011,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\LibraryProject\\LibraryProject.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\LibraryProject.csproj",
       "projectName": "LibraryProject",
-      "projectPath": "C:\\Users\\ASUS\\source\\repos\\LibraryProject\\LibraryProject.csproj",
+      "projectPath": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\LibraryProject.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\source\\repos\\LibraryProject\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,5 +1,6 @@
 ﻿using LibraryProject.DTOs.AuthorDto;
 using LibraryProject.DTOs.BookDto;
+using LibraryProject.DTOs.BorrowerDto;
 using LibraryProject.Services.Implementation;
 using LibraryProject.Services.Interface;
 
@@ -11,6 +12,8 @@ namespace LibraryProject
         {
             IAuthorService authorServices = new AuthorService();
             IBookService bookServices = new BookService();
+            IBorrowerService borrowerService = new BorrowerService();
+            
             string action;
             string input;
             do
@@ -120,41 +123,7 @@ namespace LibraryProject
                                     {
                                         Console.Write("Please enter author name: ");
                                         var name = Console.ReadLine();
-                                        if (string.IsNullOrEmpty(name)) throw new ArgumentException("Author name cannot be empty ");
-
-                                        //foreach (var item in bookServices.GetAllBooks())
-                                        //{
-                                        //    Console.WriteLine($"{item.Id} - {item.Title}");
-                                        //}
-                                        
-                                        //Console.Write("Enter book ids: ");
-                                        //var inputs = Console.ReadLine();
-
-                                        
-                                        //if (string.IsNullOrWhiteSpace(inputs))
-                                        //{
-                                        //    throw new ArgumentException("Please enter book ids.");
-                                        //}
-
-                                        
-                                        //var bookIds = inputs
-                                        //    .Split(',')
-                                        //    .Select(x =>
-                                        //    {
-                                        //        if (int.TryParse(x.Trim(), out int id)) return id;
-                                        //        throw new ArgumentException($"Wrong id format: {x}");
-                                        //    })
-                                        //    .ToList();
-
-
-                                        //var books = bookServices.GetAllBooks()
-                                        //                        .Where(x => bookIds.Contains(x.Id))
-                                        //                        .ToList();
-
-
-
-
-
+                                        if (string.IsNullOrEmpty(name) || !IsValidString(name)) throw new ArgumentException("Author name cannot be empty ");
 
 
                                         var authorDto = new AuthorCreateDto { Name = name };
@@ -195,7 +164,7 @@ namespace LibraryProject
 
                                         Console.Write("Enter new author name: ");
                                         var name = Console.ReadLine();
-                                        if (string.IsNullOrEmpty(name)) throw new ArgumentException("Author name can not be empty or null");
+                                        if (string.IsNullOrEmpty(name) || !IsValidString(name)) throw new ArgumentException("Author name can not be empty or null");
 
                                         foreach (var item in bookServices.GetAllBooks())
                                         {
@@ -209,7 +178,7 @@ namespace LibraryProject
                                         if (authorDto is null) throw new KeyNotFoundException("Author not found!");
                                         authorServices.Update(id, authorDto);
 
-                                        Console.WriteLine("Author uğurla yeniləndi.");
+                                        Console.WriteLine("Author updated succesfuly.");
                                     }
 
                                     catch (ArgumentException ex)
@@ -260,7 +229,7 @@ namespace LibraryProject
                         }
                         while (action != "0");
                         break;
-                    case "2":
+                    case "":
                         string count;
                         do
                         {
@@ -276,7 +245,7 @@ namespace LibraryProject
                             {
                                 Console.Write("Enter a number for action: ");
                                 count = Console.ReadLine();
-                                if (!int.TryParse(count, out int cnt) || cnt < 0)
+                                if (!int.TryParse(count, out int ct) || ct < 0)
                                 {
                                     throw new ArgumentException("Count must be a positive number.");
                                 }
@@ -300,7 +269,7 @@ namespace LibraryProject
                                     {
                                         var books = bookServices.GetAllBooks();
                                         if (books.Count == 0) throw new ArgumentException("Books not found.");
-                                        
+
                                         else
                                         {
                                             foreach (var book in books)
@@ -313,7 +282,7 @@ namespace LibraryProject
                                             }
                                         }
                                     }
-                                    catch(ArgumentException ex)
+                                    catch (ArgumentException ex)
                                     {
                                         Console.WriteLine($"Eror: {ex.Message}");
                                     }
@@ -328,15 +297,15 @@ namespace LibraryProject
                                     {
                                         Console.Write("Enter new book title: ");
                                         var title = Console.ReadLine();
-                                        if (string.IsNullOrEmpty(title)) throw new ArgumentException("Book title can not be empty or null");
+                                        if (string.IsNullOrEmpty(title) || !IsValidString(title)) throw new ArgumentException("Book title can not be empty or null");
 
                                         Console.Write("Enter new book descreption: ");
                                         var description = Console.ReadLine();
-                                        if (string.IsNullOrEmpty(title)) throw new ArgumentException("Book descreption can not be empty or null");
+                                        if (string.IsNullOrEmpty(description) || !IsValidString(description)) throw new ArgumentException("Book descreption can not be empty or null");
 
                                         Console.Write("Enter new book published year: ");
                                         var publishedYear = int.Parse(Console.ReadLine());
-                                        if (publishedYear < 1000) throw new ArgumentException("Published year must be greater than 1000 ");
+                                        if (publishedYear < 500 && publishedYear > 2025) throw new ArgumentException("Published year must be greater than 1000 and less than 2025 ");
                                         foreach (var item in authorServices.GetAllAuthors())
                                         {
                                             Console.WriteLine($"{item.Id} - {item.Name}");
@@ -351,7 +320,7 @@ namespace LibraryProject
 
                                         Console.WriteLine("Book added succesfuly.");
                                     }
-                                    catch(ArgumentException ex)
+                                    catch (ArgumentException ex)
                                     {
                                         Console.WriteLine($"Eror: {ex.Message}");
                                         goto ReturnBookAdd;
@@ -378,11 +347,11 @@ namespace LibraryProject
 
                                         Console.Write("Enter new book title: ");
                                         var title = Console.ReadLine();
-                                        if (string.IsNullOrEmpty(title)) throw new ArgumentException("Book title can not be empty or null");
+                                        if (string.IsNullOrEmpty(title) || !IsValidString(title)) throw new ArgumentException("Book title can not be empty or null");
 
                                         Console.Write("Enter new book descreption: ");
                                         var description = Console.ReadLine();
-                                        if (string.IsNullOrEmpty(title)) throw new ArgumentException("Book descreption can not be empty or null");
+                                        if (string.IsNullOrEmpty(description) || !IsValidString(description)) throw new ArgumentException("Book descreption can not be empty or null");
 
                                         Console.Write("Enter new book published year: ");
                                         var publishedYear = int.Parse(Console.ReadLine());
@@ -402,8 +371,8 @@ namespace LibraryProject
 
                                         Console.WriteLine("Book updated succesfuly.");
                                     }
-                                    
-                            
+
+
                                     catch (ArgumentException ex)
                                     {
                                         Console.WriteLine($"Eror:{ex.Message}");
@@ -435,7 +404,7 @@ namespace LibraryProject
 
                                         Console.WriteLine("Book removed succesfuly");
                                     }
-                                    
+
                                     catch (ArgumentException ex)
                                     {
                                         Console.WriteLine($"Eror:{ex.Message}");
@@ -458,11 +427,166 @@ namespace LibraryProject
                         while (count != "0");
                         break;
 
-                }
 
-            
+                    case "3":
+                        string cnt;
+                        do
+                        {
+                        ReturnAs:
+
+                            Console.WriteLine("\nSelect an action for borrower:");
+                            Console.WriteLine("1 - List all borrowers");
+                            Console.WriteLine("2 - Create an borrowers");
+                            Console.WriteLine("3 - Edit an borrowers");
+                            Console.WriteLine("4 - Delete an borrower");
+                            Console.WriteLine("0 - Back to main menu");
+                            try
+                            {
+                                Console.Write("Enter a number for action: ");
+                                cnt = Console.ReadLine();
+                                if (!int.TryParse(cnt, out int ct) || ct < 0)
+                                {
+                                    throw new ArgumentException("Count must be a positive number.");
+                                }
+                            }
+
+                            catch (ArgumentException ex)
+                            {
+                                Console.WriteLine($"Eror:{ex.Message}");
+                                goto ReturnAs;
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"Eror:{ex.Message}");
+                                goto ReturnAs;
+                            }
+                            switch(cnt)
+                            {
+                                case "1":
+                                    try
+                                    {
+                                        var borrowers = borrowerService.GetAll();
+                                        if (!borrowers.Any()) throw new ArgumentException("No borrower was found in the system.");
+
+
+                                        Console.WriteLine("\n--- Borrowers list ---");
+                                        foreach (var borrower in borrowers)
+                                        {
+                                            Console.WriteLine($"ID: {borrower.Id}, Name: {borrower.Name}, Email: {borrower.Email}");
+                                        }
+                                    }
+                                    catch(ArgumentException ex)
+                                    {
+                                        Console.WriteLine($"Eror:{ex.Message}");
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Console.WriteLine($"Eror:{ex.Message}");
+                                    }
+
+                                    break;
+                                case "2":
+                                    ReturnAddBorrower:
+                                    try
+                                    {
+                                        Console.Write("Borrower name: ");
+                                        string name = Console.ReadLine();
+                                        if(string.IsNullOrEmpty(name) || !IsValidString(name) ) throw new ArgumentException("Borrower name can not be empty or null ");
+
+                                        Console.Write("Borrower email: ");
+                                        string email = Console.ReadLine();
+                                        if (string.IsNullOrEmpty(email) || !IsValidString(email)) throw new ArgumentException("Borrower email can not be empty or null ");
+
+                                     
+
+                                        var dto = new BorrowerCreateDto { Name = name, Email = email };
+                                        borrowerService.Create(dto);
+                                        Console.WriteLine("Borrower added succesfuly.");
+                                    }
+                                    catch (ArgumentException ex)
+                                    {
+                                        Console.WriteLine($"Eror:{ex.Message}");
+                                        goto ReturnAddBorrower;
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Console.WriteLine($"Eror:{ex.Message}");
+                                        goto ReturnAddBorrower;
+                                    }
+
+                                    break;
+                                case "3":
+                                    ReturnUpdateBorrower:
+                                    try { 
+                                    Console.Write("Enter Borrower id whitch borrower you want update: ");
+                                    if (!int.TryParse(Console.ReadLine(), out int id)) throw new ArgumentException("ID must be a positive number.");
+
+
+                                   
+                                        var borrower = borrowerService.GetById(id);
+                                        if (borrower is null) throw new KeyNotFoundException("Borrower not found");
+                                        
+
+                                        Console.Write("New Borrower name:");
+                                        string name = Console.ReadLine();
+                                        if (string.IsNullOrEmpty(name) || !IsValidString(name)) throw new ArgumentException("Borrower name can not be empty or null ");
+
+                                        Console.Write("New Borrower email: ");
+                                        string email = Console.ReadLine();
+                                        if (string.IsNullOrEmpty(email) || !IsValidString(email)) throw new ArgumentException("Borrower email can not be empty or null ");
+
+                                       
+
+                                        var dto = new BorrowerUpdateDto { Name = name, Email = email };
+                                        borrowerService.Update(id, dto);
+                                        Console.WriteLine($"Borrower ID {id} updated succesfuly.");
+                                    }
+                                    catch (KeyNotFoundException ex)
+                                    {
+                                        Console.WriteLine($"Eror:{ex.Message}");
+                                        goto ReturnUpdateBorrower;
+
+                                    }
+                                    catch (ArgumentException ex)
+                                    {
+                                        Console.WriteLine($"Eror:{ex.Message}");
+                                        goto ReturnUpdateBorrower;
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Console.WriteLine($"Eror: {ex.Message}");
+                                        goto ReturnUpdateBorrower;
+                                    }
+                                   
+                                    break;
+                                case "4":
+
+                                    break;
+                                case "0":
+                                    break;
+                            }
+                        }
+                        while (cnt != "0");
+                        break;
+
+
+
+
+                }
             }
             while (input == "0");
+        }
+        static bool IsValidString(string value)
+        {
+            foreach (char c in value)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+
+            }
+            return true;
         }
     }
 }
