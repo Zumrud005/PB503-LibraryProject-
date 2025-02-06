@@ -7,7 +7,8 @@ namespace LibraryProject.Repositories.Implementation
 {
     public class BookRepository : GenericRepository<Book>, IBookRepository
     {
-        private readonly AppDbContext _appDbContext;
+        public readonly AppDbContext _appDbContext;
+
         public BookRepository()
         {
             _appDbContext = new AppDbContext();

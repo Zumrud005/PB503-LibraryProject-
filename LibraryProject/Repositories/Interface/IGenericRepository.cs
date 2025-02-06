@@ -13,7 +13,7 @@ namespace LibraryProject.Repositories.Interface
         void Remove(T entity);
         T GetById(int id);
         List<T> GetAll();
-        int Commit();
+        void Commit();
 
     }
 }

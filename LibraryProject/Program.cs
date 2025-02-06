@@ -3,6 +3,8 @@ using LibraryProject.DTOs.BookDto;
 using LibraryProject.DTOs.BorrowerDto;
 using LibraryProject.Services.Implementation;
 using LibraryProject.Services.Interface;
+using System.Reflection.Metadata.Ecma335;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LibraryProject
 {
@@ -223,13 +225,14 @@ namespace LibraryProject
                                     break;
                                 case "0":
                                     Console.WriteLine("Back to main menu...");
-                                    break;
+                                    goto Return;
+                                   
                             }
 
                         }
                         while (action != "0");
                         break;
-                    case "":
+                    case "2":
                         string count;
                         do
                         {
@@ -420,6 +423,7 @@ namespace LibraryProject
                                     break;
                                 case "0":
                                     Console.WriteLine("Back to main menu...");
+                                    goto Return;
                                     break;
                             }
 
@@ -560,10 +564,35 @@ namespace LibraryProject
                                    
                                     break;
                                 case "4":
+                                    ReturnRemoveBorrower:
+                                    try {
+                                        Console.Write("Enter id which borrower you want delete: ");
+                                    if (!int.TryParse(Console.ReadLine(), out int id)) throw new ArgumentException("ID must be a positive number");
+                                   
 
+                                    
+                                        borrowerService.Delete(id);
+                                        Console.WriteLine($"Borrower ID {id} deleted succesfuly.");
+                                    }
+                                    catch (InvalidOperationException ex)
+                                    {
+                                        Console.WriteLine($"Eror: {ex.Message}");
+                                        goto ReturnRemoveBorrower;
+                                    }
+                                    catch (KeyNotFoundException ex)
+                                    {
+                                        Console.WriteLine($"Eror: {ex.Message}");
+                                        goto ReturnRemoveBorrower;
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Console.WriteLine($"Eror: {ex.Message}");
+                                        goto ReturnRemoveBorrower;
+                                    }
                                     break;
                                 case "0":
-                                    break;
+                                    Console.WriteLine("Back to main menu...");
+                                    goto Return;
                             }
                         }
                         while (cnt != "0");
@@ -574,7 +603,8 @@ namespace LibraryProject
 
                 }
             }
-            while (input == "0");
+            while (input != "0");
+            
         }
         static bool IsValidString(string value)
         {

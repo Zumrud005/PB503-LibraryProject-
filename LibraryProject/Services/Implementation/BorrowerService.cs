@@ -51,12 +51,18 @@ namespace LibraryProject.Services.Implementation
         {
             var borrower = _borrowerRepository.GetById(id);
             if (borrower is null)
-            {
-                throw new KeyNotFoundException($"Borrower with id {id} not found.");
-            }
-
+                throw new KeyNotFoundException($"Borrower ID {id} not found!");
 
             var loans = _loanRepository.GetAll().Where(l => l.BorrowerId == id).ToList();
+
+         
+            bool hasUnreturnedBooks = loans.Any(l => l.ReturnDate == null);
+            if (hasUnreturnedBooks)
+            {
+                throw new InvalidOperationException("There are books that Borrower has not returned! Update is not possible.");
+            }
+
+            
             foreach (var loan in loans)
             {
                 var loanItems = _loanItemRepository.GetAll().Where(li => li.LoanId == loan.Id).ToList();
@@ -66,6 +72,12 @@ namespace LibraryProject.Services.Implementation
                 }
                 _loanRepository.Remove(loan);
             }
+
+      
+            _borrowerRepository.Remove(borrower);
+            _borrowerRepository.Commit();
+
+            
         }
 
         public List<BorrowerGetDto> GetAll()

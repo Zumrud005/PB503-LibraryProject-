@@ -3,12 +3,76 @@
   "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\services\\implementation\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:services\\implementation\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\repositories\\implementation\\bookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:repositories\\implementation\\bookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\services\\implementation\\authorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:services\\implementation\\authorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\services\\implementation\\borrowerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:services\\implementation\\borrowerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\repositories\\implementation\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:repositories\\implementation\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\dtos\\bookdto\\bookupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:dtos\\bookdto\\bookupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\dtos\\bookdto\\bookgetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:dtos\\bookdto\\bookgetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\dtos\\bookdto\\bookcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:dtos\\bookdto\\bookcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\dtos\\borrowerdto\\borrowercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:dtos\\borrowerdto\\borrowercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\dtos\\authordto\\authorgetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:dtos\\authordto\\authorgetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\dtos\\authordto\\authorcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:dtos\\authordto\\authorcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\models\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:models\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\repositories\\interface\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:repositories\\interface\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\models\\loan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:models\\loan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\models\\borrower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:models\\borrower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\repositories\\interface\\iauthorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:repositories\\interface\\iauthorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\dtos\\borrowerdto\\borrowerupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:dtos\\borrowerdto\\borrowerupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\repositories\\interface\\ibookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,18 +83,6 @@
       "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:services\\interface\\ibookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\services\\implementation\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:services\\implementation\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\services\\implementation\\borrowerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:services\\implementation\\borrowerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\dtos\\borrowerdto\\borrowerupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:dtos\\borrowerdto\\borrowerupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\services\\interface\\iborrowerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:services\\interface\\iborrowerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -39,24 +91,8 @@
       "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:repositories\\interface\\iborrowerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\dtos\\borrowerdto\\borrowercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:dtos\\borrowerdto\\borrowercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\dtos\\borrowerdto\\borrowergetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:dtos\\borrowerdto\\borrowergetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\models\\borrower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:models\\borrower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\services\\implementation\\authorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:services\\implementation\\authorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\repositories\\implementation\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:repositories\\implementation\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\repositories\\implementation\\borrowerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -65,14 +101,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\repositories\\implementation\\authorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:repositories\\implementation\\authorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\models\\loan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:models\\loan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\repositories\\interface\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:repositories\\interface\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\repositories\\interface\\iloanitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -87,28 +115,12 @@
       "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:services\\interface\\iauthorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\repositories\\interface\\iauthorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:repositories\\interface\\iauthorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\dtos\\bookdto\\bookcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:dtos\\bookdto\\bookcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\dtos\\bookdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:dtos\\bookdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\dtos\\bookdto\\bookgetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:dtos\\bookdto\\bookgetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\dtos\\authordtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:dtos\\authordtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\dtos\\bookdto\\bookupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|solutionrelative:dtos\\bookdto\\bookupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8D642AC-2B5D-47CB-A17C-23524743D538}|LibraryProject.csproj|c:\\users\\asus\\desktop\\pb503-05.02.2025\\libraryproject\\dtos\\loandto\\loanupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -142,50 +154,232 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IBookRepository.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Interface\\IBookRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Interface\\IBookRepository.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Interface\\IBookRepository.cs",
-              "RelativeToolTip": "Repositories\\Interface\\IBookRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T11:39:00.553Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BorrowerService.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Services\\Implementation\\BorrowerService.cs",
-              "RelativeDocumentMoniker": "Services\\Implementation\\BorrowerService.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Services\\Implementation\\BorrowerService.cs",
-              "RelativeToolTip": "Services\\Implementation\\BorrowerService.cs",
-              "ViewState": "AgIAAHIAAAAAAAAAAAAwwJEAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T16:07:17.287Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BookService.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Services\\Implementation\\BookService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementation\\BookService.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Services\\Implementation\\BookService.cs",
+              "RelativeToolTip": "Services\\Implementation\\BookService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T21:03:17.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAACICAAAAAAAAAAAwwDICAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEcBAAAAAAAAAAAawE8BAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-05T15:58:44.44Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AuthorCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\AuthorDto\\AuthorCreateDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\AuthorDto\\AuthorCreateDto.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\AuthorDto\\AuthorCreateDto.cs",
+              "RelativeToolTip": "DTOs\\AuthorDto\\AuthorCreateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T12:56:40.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Author.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Models\\Author.cs",
+              "RelativeDocumentMoniker": "Models\\Author.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Models\\Author.cs",
+              "RelativeToolTip": "Models\\Author.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T12:56:36.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Loan.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Models\\Loan.cs",
+              "RelativeDocumentMoniker": "Models\\Loan.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Models\\Loan.cs",
+              "RelativeToolTip": "Models\\Loan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T19:33:34.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthorService.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Services\\Implementation\\AuthorService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementation\\AuthorService.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Services\\Implementation\\AuthorService.cs",
+              "RelativeToolTip": "Services\\Implementation\\AuthorService.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwCkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T16:23:43.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BorrowerService.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Services\\Implementation\\BorrowerService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementation\\BorrowerService.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Services\\Implementation\\BorrowerService.cs",
+              "RelativeToolTip": "Services\\Implementation\\BorrowerService.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAwwE8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T16:07:17.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BookRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Implementation\\BookRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Implementation\\BookRepository.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Implementation\\BookRepository.cs",
+              "RelativeToolTip": "Repositories\\Implementation\\BookRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T13:43:20.728Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "BookUpdateDto.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BookDto\\BookUpdateDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\BookDto\\BookUpdateDto.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BookDto\\BookUpdateDto.cs",
+              "RelativeToolTip": "DTOs\\BookDto\\BookUpdateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T20:37:34.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BookGetDto.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BookDto\\BookGetDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\BookDto\\BookGetDto.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BookDto\\BookGetDto.cs",
+              "RelativeToolTip": "DTOs\\BookDto\\BookGetDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T20:37:12.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BookCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BookDto\\BookCreateDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\BookDto\\BookCreateDto.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BookDto\\BookCreateDto.cs",
+              "RelativeToolTip": "DTOs\\BookDto\\BookCreateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T20:37:23.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Borrower.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Models\\Borrower.cs",
+              "RelativeDocumentMoniker": "Models\\Borrower.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Models\\Borrower.cs",
+              "RelativeToolTip": "Models\\Borrower.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T19:33:28.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Implementation\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Implementation\\GenericRepository.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Implementation\\GenericRepository.cs",
+              "RelativeToolTip": "Repositories\\Implementation\\GenericRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAuwA4AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T16:22:45.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "BorrowerCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BorrowerDto\\BorrowerCreateDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\BorrowerDto\\BorrowerCreateDto.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BorrowerDto\\BorrowerCreateDto.cs",
+              "RelativeToolTip": "DTOs\\BorrowerDto\\BorrowerCreateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T20:37:58.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AuthorGetDto.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\AuthorDto\\AuthorGetDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\AuthorDto\\AuthorGetDto.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\AuthorDto\\AuthorGetDto.cs",
+              "RelativeToolTip": "DTOs\\AuthorDto\\AuthorGetDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T12:56:46.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IAuthorRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Interface\\IAuthorRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interface\\IAuthorRepository.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Interface\\IAuthorRepository.cs",
+              "RelativeToolTip": "Repositories\\Interface\\IAuthorRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T20:19:28.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IGenericRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Interface\\IGenericRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interface\\IGenericRepository.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Interface\\IGenericRepository.cs",
+              "RelativeToolTip": "Repositories\\Interface\\IGenericRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T20:19:06.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "BorrowerUpdateDto.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BorrowerDto\\BorrowerUpdateDto.cs",
               "RelativeDocumentMoniker": "DTOs\\BorrowerDto\\BorrowerUpdateDto.cs",
@@ -198,20 +392,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BookService.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Services\\Implementation\\BookService.cs",
-              "RelativeDocumentMoniker": "Services\\Implementation\\BookService.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Services\\Implementation\\BookService.cs",
-              "RelativeToolTip": "Services\\Implementation\\BookService.cs",
-              "ViewState": "AgIAABQAAAAAzszMzMwSwC4AAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T21:03:17.941Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 19,
               "Title": "IBookService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Services\\Interface\\IBookService.cs",
               "RelativeDocumentMoniker": "Services\\Interface\\IBookService.cs",
@@ -219,25 +400,23 @@
               "RelativeToolTip": "Services\\Interface\\IBookService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T21:02:55.379Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-04T21:02:55.379Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "BookRepository.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Implementation\\BookRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Implementation\\BookRepository.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Implementation\\BookRepository.cs",
-              "RelativeToolTip": "Repositories\\Implementation\\BookRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABHAAAAAAAAAA==",
+              "DocumentIndex": 18,
+              "Title": "IBookRepository.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Interface\\IBookRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interface\\IBookRepository.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Interface\\IBookRepository.cs",
+              "RelativeToolTip": "Repositories\\Interface\\IBookRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T13:43:20.728Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-06T11:39:00.553Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 20,
               "Title": "IBorrowerService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Services\\Interface\\IBorrowerService.cs",
               "RelativeDocumentMoniker": "Services\\Interface\\IBorrowerService.cs",
@@ -249,7 +428,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 21,
               "Title": "IBorrowerRepository.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Interface\\IBorrowerRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interface\\IBorrowerRepository.cs",
@@ -261,19 +440,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "BorrowerCreateDto.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BorrowerDto\\BorrowerCreateDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\BorrowerDto\\BorrowerCreateDto.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BorrowerDto\\BorrowerCreateDto.cs",
-              "RelativeToolTip": "DTOs\\BorrowerDto\\BorrowerCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T20:37:58.513Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 22,
               "Title": "BorrowerGetDto.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BorrowerDto\\BorrowerGetDto.cs",
               "RelativeDocumentMoniker": "DTOs\\BorrowerDto\\BorrowerGetDto.cs",
@@ -285,43 +452,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Borrower.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Models\\Borrower.cs",
-              "RelativeDocumentMoniker": "Models\\Borrower.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Models\\Borrower.cs",
-              "RelativeToolTip": "Models\\Borrower.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T19:33:28.449Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "AuthorService.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Services\\Implementation\\AuthorService.cs",
-              "RelativeDocumentMoniker": "Services\\Implementation\\AuthorService.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Services\\Implementation\\AuthorService.cs",
-              "RelativeToolTip": "Services\\Implementation\\AuthorService.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACkAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T16:23:43.487Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "GenericRepository.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Implementation\\GenericRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Implementation\\GenericRepository.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Implementation\\GenericRepository.cs",
-              "RelativeToolTip": "Repositories\\Implementation\\GenericRepository.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T16:22:45.559Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 23,
               "Title": "BorrowerRepository.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Implementation\\BorrowerRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementation\\BorrowerRepository.cs",
@@ -333,7 +464,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 24,
               "Title": "AuthorRepository.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Implementation\\AuthorRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementation\\AuthorRepository.cs",
@@ -345,31 +476,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "IGenericRepository.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Interface\\IGenericRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Interface\\IGenericRepository.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Interface\\IGenericRepository.cs",
-              "RelativeToolTip": "Repositories\\Interface\\IGenericRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T20:19:06.557Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Loan.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Models\\Loan.cs",
-              "RelativeDocumentMoniker": "Models\\Loan.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Models\\Loan.cs",
-              "RelativeToolTip": "Models\\Loan.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T19:33:34.652Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 25,
               "Title": "ILoanItemRepository.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Interface\\ILoanItemRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interface\\ILoanItemRepository.cs",
@@ -381,7 +488,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 26,
               "Title": "ILoanRepository.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Interface\\ILoanRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Interface\\ILoanRepository.cs",
@@ -393,7 +500,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 27,
               "Title": "IAuthorService.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Services\\Interface\\IAuthorService.cs",
               "RelativeDocumentMoniker": "Services\\Interface\\IAuthorService.cs",
@@ -405,31 +512,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "IAuthorRepository.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Interface\\IAuthorRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Interface\\IAuthorRepository.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Interface\\IAuthorRepository.cs",
-              "RelativeToolTip": "Repositories\\Interface\\IAuthorRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T20:19:28.602Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "BookCreateDto.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BookDto\\BookCreateDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\BookDto\\BookCreateDto.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BookDto\\BookCreateDto.cs",
-              "RelativeToolTip": "DTOs\\BookDto\\BookCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T20:37:23.401Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 28,
               "Title": "BookDtos.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BookDtos.cs",
               "RelativeDocumentMoniker": "DTOs\\BookDtos.cs",
@@ -441,19 +524,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "BookGetDto.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BookDto\\BookGetDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\BookDto\\BookGetDto.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BookDto\\BookGetDto.cs",
-              "RelativeToolTip": "DTOs\\BookDto\\BookGetDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T20:37:12.246Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 29,
               "Title": "AuthorDtos.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\AuthorDtos.cs",
               "RelativeDocumentMoniker": "DTOs\\AuthorDtos.cs",
@@ -465,7 +536,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "LoanUpdateDto.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\LoanDto\\LoanUpdateDto.cs",
               "RelativeDocumentMoniker": "DTOs\\LoanDto\\LoanUpdateDto.cs",
@@ -477,7 +548,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "LoanCreateDto.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\LoanDto\\LoanCreateDto.cs",
               "RelativeDocumentMoniker": "DTOs\\LoanDto\\LoanCreateDto.cs",
@@ -489,7 +560,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 32,
               "Title": "LoanGetDto.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\LoanDto\\LoanGetDto.cs",
               "RelativeDocumentMoniker": "DTOs\\LoanDto\\LoanGetDto.cs",
@@ -501,19 +572,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "BookUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BookDto\\BookUpdateDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\BookDto\\BookUpdateDto.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\DTOs\\BookDto\\BookUpdateDto.cs",
-              "RelativeToolTip": "DTOs\\BookDto\\BookUpdateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T20:37:34.275Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 34,
               "Title": "LoanItemRepository.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Implementation\\LoanItemRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementation\\LoanItemRepository.cs",
@@ -525,7 +584,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 33,
               "Title": "LoanRepository.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Repositories\\Implementation\\LoanRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\Implementation\\LoanRepository.cs",
@@ -537,7 +596,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 35,
               "Title": "LoanItem.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\PB503-05.02.2025\\LibraryProject\\Models\\LoanItem.cs",
               "RelativeDocumentMoniker": "Models\\LoanItem.cs",

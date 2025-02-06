@@ -24,30 +24,62 @@ namespace LibraryProject.Services.Implementation
         }
         public void Add(BookCreateDto bookDto)
         {
+            if (bookDto == null
+           || string.IsNullOrWhiteSpace(bookDto.Title)
+           || string.IsNullOrWhiteSpace(bookDto.Desc)) throw new ArgumentException("Book titles or book decs can not be null or empty");
 
-            if (bookDto is null) throw new ArgumentNullException(nameof(bookDto));
-
-            if (string.IsNullOrWhiteSpace(bookDto.Title) || string.IsNullOrWhiteSpace(bookDto.Desc)) throw new ArgumentException("Book title or book descreption cannot be empty.");
-
-            var authors = _authorRepository.GetByIds(bookDto.AuthorIds).ToList();
-            if (authors == null || authors.Count != bookDto.AuthorIds.Count)
-            {
-                throw new KeyNotFoundException("One or more authors not found.");
-            }
-
-            var book = new Book
+            var book = new Book()
             {
                 Title = bookDto.Title,
                 Description = bookDto.Desc,
                 PublishedYear = bookDto.PublishedYear,
-                CreatedAt = DateTime.UtcNow.AddHours(4),
-                UpdateAt = DateTime.UtcNow.AddHours(4),
                 Authors = new List<Author>()
             };
-           
 
-            _bookRepository.Add(book);
-            _bookRepository.Commit();
+            BookRepository bookRepository = new BookRepository();
+            var authors = bookRepository._appDbContext.Authors
+                .Where(a => bookDto.AuthorIds.Contains(a.Id))
+                .ToList();
+            if (authors is null || authors.Count <  bookDto.AuthorIds.Count) throw new ArgumentException("Author(s) not found");
+
+            foreach (var author in authors)
+            {
+                book.Authors.Add(author);
+            }
+            bookRepository.Add(book);
+
+            bookRepository.Commit();
+
+            //if (bookDto is null) throw new ArgumentNullException(nameof(bookDto));
+
+            //if (string.IsNullOrWhiteSpace(bookDto.Title) || string.IsNullOrWhiteSpace(bookDto.Desc)) throw new ArgumentException("Book title or book descreption cannot be empty.");
+
+            //var authors = _authorRepository.GetByIds(bookDto.AuthorIds).ToList();
+            //var authors = _authorRepository.GetAll().Where(a => bookDto.AuthorIds.Contains(a.Id)).ToList();
+
+            //if (authors is null || authors.Count != bookDto.AuthorIds.Count)
+            //{
+            //    throw new KeyNotFoundException("One or more authors not found.");
+            //}
+            //if (!authors.Any())
+            //{
+            //    throw new InvalidOperationException("No featured authors available.");
+            //}
+
+
+            //var book = new Book
+            //{
+            //    Title = bookDto.Title,
+            //    Description = bookDto.Desc,
+            //    PublishedYear = bookDto.PublishedYear,
+            //    CreatedAt = DateTime.UtcNow.AddHours(4),
+            //    UpdateAt = DateTime.UtcNow.AddHours(4),
+            //    Authors = authors
+            //};
+
+
+            //_bookRepository.Add(book);
+            //_bookRepository.Commit();
         }
 
         public void Delete(int id)

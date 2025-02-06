@@ -1,12 +1,6 @@
 ﻿using LibraryProject.Data;
 using LibraryProject.Models;
 using LibraryProject.Repositories.Interface;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryProject.Repositories.Implementation
 {
@@ -20,16 +14,33 @@ namespace LibraryProject.Repositories.Implementation
         public void Add(T entity)
         => _appDbContext.Set<T>().Add(entity);
 
-        public int Commit()
-        => _appDbContext.SaveChanges();
+        public void Commit()
+        {
+           
+            try
+            {
+                _appDbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Xəta baş verdi: {ex.Message}");
 
-        public List<T> GetAll()
-        => _appDbContext.Set<T>().ToList();
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine($"Daxili xəta: {ex.InnerException.Message}");
+                }
+                throw;
+            }
+        }
 
-        public T GetById(int id)
-        => _appDbContext.Set<T>().FirstOrDefault(x=>x.Id==id);   
 
-        public void Remove(T entity)
-        => _appDbContext.Set<T>().Remove(entity);
+            public List<T> GetAll()
+            => _appDbContext.Set<T>().ToList();
+
+            public T GetById(int id)
+            => _appDbContext.Set<T>().FirstOrDefault(x => x.Id == id);
+
+            public void Remove(T entity)
+            => _appDbContext.Set<T>().Remove(entity);
+        }
     }
-}
