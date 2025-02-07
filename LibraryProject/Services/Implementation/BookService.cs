@@ -24,9 +24,7 @@ namespace LibraryProject.Services.Implementation
         }
         public void Add(BookCreateDto bookCreateDto)
         {
-            if (bookCreateDto is null
-           || string.IsNullOrWhiteSpace(bookCreateDto.Title)
-           || string.IsNullOrWhiteSpace(bookCreateDto.Desc)) throw new ArgumentException("Book titles or book decs can not be null or empty");
+            if (bookCreateDto is null  || string.IsNullOrWhiteSpace(bookCreateDto.Title) || string.IsNullOrWhiteSpace(bookCreateDto.Desc)) throw new ArgumentException("Book titles or book decs can not be null or empty");
 
             var book = new Book()
             {
@@ -38,19 +36,17 @@ namespace LibraryProject.Services.Implementation
                 Authors = new List<Author>()
             };
 
-            BookRepository bookRepository = new BookRepository();
-            var authors = bookRepository._appDbContext.Authors
-                .Where(a => bookCreateDto.AuthorIds.Contains(a.Id))
-                .ToList();
+            //BookRepository bookRepository = new BookRepository();
+            var authors = _bookRepository.AuthorsSet(bookCreateDto.AuthorIds);
             if (authors is null || authors.Count <  bookCreateDto.AuthorIds.Count) throw new ArgumentException("Author(s) not found");
 
             foreach (var author in authors)
             {
                 book.Authors.Add(author);
             }
-            bookRepository.Add(book);
+            _bookRepository.Add(book);
 
-            bookRepository.Commit();
+            _bookRepository.Commit();
 
            
         }
@@ -98,17 +94,17 @@ namespace LibraryProject.Services.Implementation
 
         public void Update(int id, BookUpdateDto bookUpdateDto)
         {
-            BookRepository bookRepository = new BookRepository();
+            //BookRepository bookRepository = new BookRepository();
             if (bookUpdateDto is null) throw new ArgumentNullException(nameof(bookUpdateDto));
 
            
-            var book = bookRepository.GetByIdWithAuthors(id);
+            var book = _bookRepository.GetByIdWithAuthors(id);
             if (book is null) throw new KeyNotFoundException("Book not found.");
 
             if (string.IsNullOrWhiteSpace(bookUpdateDto.Title) || string.IsNullOrWhiteSpace(bookUpdateDto.Desc)) throw new ArgumentException("Book title or book descreption cannot be empty.");
 
            
-            bookRepository.RemoveBookAuthorRelations(book);
+            _bookRepository.RemoveBookAuthorRelations(book);
 
             book.Title = bookUpdateDto.Title;
             book.Description = bookUpdateDto.Desc;
@@ -117,9 +113,7 @@ namespace LibraryProject.Services.Implementation
             
             book.UpdateAt = DateTime.UtcNow.AddHours(4);
 
-            var authors = bookRepository._appDbContext.Authors.Where(a => bookUpdateDto.AuthorIds
-                                                              .Contains(a.Id))
-                                                              .ToList();
+            var authors = _bookRepository.AuthorsSet(bookUpdateDto.AuthorIds);
             if (authors is null || authors.Count < bookUpdateDto.AuthorIds.Count) throw new KeyNotFoundException("Author(s) not found");
 
             foreach (var author in authors)
@@ -127,14 +121,13 @@ namespace LibraryProject.Services.Implementation
                 book.Authors.Add(author);
             }
 
-            bookRepository.Commit();
+            _bookRepository.Commit();
         }
 
         public BookGetDto GetMostBorrowedBook()
         {
-            LoanItemRepository loanItemRepository = new LoanItemRepository();
-            BookRepository bookRepository = new BookRepository();
-
+            ILoanItemRepository loanItemRepository = new LoanItemRepository();
+           
             var loanItems = loanItemRepository.GetAll();
 
             if (loanItems == null || !loanItems.Any())
@@ -147,7 +140,7 @@ namespace LibraryProject.Services.Implementation
                 .Select(x => x.Key)
                 .FirstOrDefault();
 
-            var mostBorrowedBook = bookRepository.GetById(mostBorrowedBookId);
+            var mostBorrowedBook = _bookRepository.GetById(mostBorrowedBookId);
 
             if (mostBorrowedBook is null)
                 throw new KeyNotFoundException("Book not found");

@@ -20,7 +20,7 @@ namespace LibraryProject.Services.Implementation
         {
             BorrowerRepository borrowerRepository = new BorrowerRepository();
             LoanRepository loanRepository = new LoanRepository();
-            BookRepository bookRepository = new BookRepository();
+            IBookRepository bookRepository = new BookRepository();
 
 
             var borrower = borrowerRepository.GetById(loanCreateDto.BorrowerId);
@@ -34,7 +34,7 @@ namespace LibraryProject.Services.Implementation
             var books = bookRepository.GetAll().Where(b => loanCreateDto.BookIds.Contains(b.Id)).ToList();
             if (books.Count != loanCreateDto.BookIds.Count)
                 throw new ArgumentException("Some books do not exist!");
-            if (loanCreateDto.BookIds.Any(bookId => !IsBookAvailable(bookId)))
+            if (loanCreateDto.BookIds.Any(bookId => !bookRepository.IsAvailable(bookId)))
             {
                 throw new InvalidOperationException("One or more books are currently borrowed and not returned yet.");
             }
@@ -115,24 +115,7 @@ namespace LibraryProject.Services.Implementation
             loan.ReturnDate = loanUpdateDto.ReturnDate;
             loanRepository.Commit();
         }
-        public bool IsBookAvailable(int bookId)
-        {
-
-            LoanItemRepository loanItemRepository = new LoanItemRepository();
-            LoanRepository loanRepository = new LoanRepository();
-
-         
-            var loanItems = loanItemRepository.GetAll().Where(li => li.BookId == bookId).ToList();
-
-            if (!loanItems.Any()) return true;  
-
-            var activeLoans = loanRepository.GetAll()
-                .Where(l => loanItems.Select(li => li.LoanId).Contains(l.Id) && l.ReturnDate == null)
-                .ToList();
-
-          
-            return !activeLoans.Any();
-        }
+       
 
         public void CreateLoan(Loan loan)
         {

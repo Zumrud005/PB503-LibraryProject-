@@ -13,5 +13,6 @@ namespace LibraryProject.Repositories.Interface
         Author GetByIdWithBooks(int id); 
         List<Author> GetAllWithBooks();
         void RemoveBookAuthorRelations(Author author);
+        List<Book>? BooksSet(List<int> bookId);
     }
 }

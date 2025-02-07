@@ -13,5 +13,7 @@ namespace LibraryProject.Repositories.Interface
         Book GetByIdWithAuthors(int id);
         List<Book> GetAllWithAuthors();
         bool IsAvailable(int id);
+        List<Author>? AuthorsSet(List<int> authorId);
+        void RemoveBookAuthorRelations(Book book);
     }
 }

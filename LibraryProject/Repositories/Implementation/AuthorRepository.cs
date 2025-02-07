@@ -23,6 +23,12 @@ namespace LibraryProject.Repositories.Implementation
 
         public Author GetByIdWithBooks(int id)
         => _appDbContext.Authors.Include(x => x.Books).FirstOrDefault(x => x.Id == id);
+
+
+        public List<Book>? BooksSet(List<int> bookId)
+        => _appDbContext.Books.Where(a => bookId
+                              .Contains(a.Id))
+                              .ToList();
         public void RemoveBookAuthorRelations(Author author)
         {
             

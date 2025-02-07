@@ -137,22 +137,22 @@ namespace LibraryProject.Services.Implementation
             if (dto is null) throw new ArgumentNullException(nameof(dto));
             if (string.IsNullOrWhiteSpace(dto.Name) || string.IsNullOrWhiteSpace(dto.Email)) throw new ArgumentException("Borrower name or email cannot be empty.");
 
-            BorrowerRepository repository = new BorrowerRepository();
-            var borrower = repository.GetById(id);
+            
+            var borrower = _borrowerRepository.GetById(id);
             if (borrower is null)
             {
                 throw new KeyNotFoundException($"Borrower with id {id} not found.");
             }
 
 
-            LoanRepository loanRepository = new LoanRepository();
-            var loans = loanRepository.GetAll()
+           // LoanRepository loanRepository = new LoanRepository();
+            var loans = _loanRepository.GetAll()
                                      
-                                      .Where(l => l.BorrowerId == id)
+                                       .Where(l => l.BorrowerId == id)
                                       .ToList();
 
-            LoanItemRepository loanItemRepository = new LoanItemRepository();
-            var loanItems = loanItemRepository.GetAll().Where(li => loans.Select(l => l.Id).Contains(li.LoanId)).ToList();
+            //LoanItemRepository loanItemRepository = new LoanItemRepository();
+            var loanItems = _loanItemRepository.GetAll().Where(li => loans.Select(l => l.Id).Contains(li.LoanId)).ToList();
 
           
             bool hasUnreturnedBooks = loans.Any(l => l.ReturnDate == null);
@@ -165,11 +165,11 @@ namespace LibraryProject.Services.Implementation
             borrower.Email = dto.Email;
             borrower.UpdateAt = DateTime.UtcNow.AddHours(4);
 
-          
-            
 
-           
-            repository.Commit();
+
+
+
+            _borrowerRepository.Commit();
 
            
         }
@@ -177,31 +177,37 @@ namespace LibraryProject.Services.Implementation
 
         public List<BorrowerBooksDto> GetAllBorrowedBooks()
         {
-            LoanRepository loanRepository = new LoanRepository();
-            LoanItemRepository loanItemRepository = new LoanItemRepository();
-            BookRepository bookRepository = new BookRepository();
-            BorrowerRepository borrowerRepository = new BorrowerRepository();
+            //LoanRepository loanRepository = new LoanRepository();
+            //LoanItemRepository loanItemRepository = new LoanItemRepository();
+            //BookRepository bookRepository = new BookRepository();
+            //BorrowerRepository borrowerRepository = new BorrowerRepository();
 
           
-            var allLoans = loanRepository.GetAll();
+            var allLoans = _loanRepository.GetAll();
 
          
             if (!allLoans.Any()) return new List<BorrowerBooksDto>();
 
           
-            var loanItems = loanItemRepository.GetAll()
-                .Where(li => allLoans.Select(l => l.Id).Contains(li.LoanId))
-                .ToList();
+            var loanItems = _loanItemRepository.GetAll()
+                                              .Where(li => allLoans 
+                                              .Select(l => l.Id)
+                                              .Contains(li.LoanId))
+                                              .ToList();
 
             
-            var books = bookRepository.GetAll()
-                .Where(b => loanItems.Select(li => li.BookId).Contains(b.Id))
-                .ToList();
+            var books = _bookRepository.GetAll()
+                                       .Where(b => loanItems 
+                                       .Select(li => li.BookId)
+                                       .Contains(b.Id))
+                                       .ToList();
 
        
-            var borrowers = borrowerRepository.GetAll()
-                .Where(b => allLoans.Select(l => l.BorrowerId).Contains(b.Id))
-                .ToList();
+            var borrowers = _borrowerRepository.GetAll()
+                                               .Where(b => allLoans
+                                               .Select(l => l.BorrowerId)
+                                               .Contains(b.Id))
+                                               .ToList();
 
            
             var result = borrowers.Select(borrower => new BorrowerBooksDto

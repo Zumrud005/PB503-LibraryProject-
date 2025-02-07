@@ -283,7 +283,7 @@ namespace LibraryProject
                                         {
                                             foreach (var book in books)
                                             {
-                                                Console.WriteLine($"ID: {book.Id}, Title: {book.Title},Descreption: {book.Desc}, Year: {book.PublishedYear}");
+                                                Console.WriteLine($"ID: {book.Id}, Title: {book.Title},Descreption: {book.Desc}, Year: {book.PublishedYear}, IsAviable: {book.IsAvailable}");
                                                 foreach (var author in book.Authors)
                                                 {
                                                     Console.WriteLine($"    Author: {author.Name} (ID: {author.Id})");
@@ -677,8 +677,8 @@ namespace LibraryProject
                                         }
 
                                         Console.Write("Enter Borrower Id: ");
-                                        int borrowerId = int.Parse(Console.ReadLine());
-                                        if (borrowerId < 1) throw new ArgumentException("must be a positive number and less than 0");
+                                        int borrowerID = int.Parse(Console.ReadLine());
+                                        if (borrowerID < 1) throw new ArgumentException("must be a positive number and less than 0");
                                         Console.WriteLine("Book List");
                                         foreach (var item in bookServices.GetAllBooks())
                                         {
@@ -688,7 +688,7 @@ namespace LibraryProject
                                         List<int> bookIds = Console.ReadLine().Split(',').Select(int.Parse).ToList();
 
 
-                                        var loan = loanService.Create(new LoanCreateDto { BorrowerId = borrowerId, BookIds = bookIds });
+                                        var loan = loanService.Create(new LoanCreateDto { BorrowerId = borrowerID, BookIds = bookIds });
                                         Console.WriteLine($"Loan created successfully! Loan Id: {loan.Id}");
                                     }
                                     catch (ArgumentException ex)
@@ -763,105 +763,105 @@ namespace LibraryProject
                         while (enter != "0");
                         break;
                     case "5":
-                    ReturnBorrowBook:
+                        ReturnBorrowBook:
 
+                        try
+                        {
+                            List<int> selectedBookIds = new List<int>();
+                            Console.WriteLine("Borrower list:");
+                            var borrowers = borrowerService.GetAll();
+                            if (borrowers is null || !borrowers.Any()) throw new ArgumentException("Borrower list is empty");
 
-                        //try
-                        //{
+                            foreach (var borrower in borrowers)
+                            {
+                                Console.WriteLine($"{borrower.Id} - {borrower.Name}");
+                            }
 
-                        //    List<int> selectedBookIds = new List<int>();
-                        //    Console.WriteLine("Borrower list");
-                        //    var borrowers = borrowerService.GetAll();
-                        //    if (borrowers is null) throw new ArgumentException("List is empty");
-                        //    foreach (var borrower in borrowers)
-                        //    {
-                        //        Console.WriteLine($"{borrower.Id} - {borrower.Name}");
-                        //    }
-                        //    Console.WriteLine("Please enter borrower id:");
-                        //    int borrowerId;
-                        //    while (!int.TryParse(Console.ReadLine(), out borrowerId) || !borrowers.Any(b => b.Id == borrowerId))
-                        //    {
-                        //        Console.WriteLine("Wrong borrower id. Please try again...");
-                        //    }
+                            Console.WriteLine("Please enter borrower id:");
+                            int borrowerId;
+                            while (!int.TryParse(Console.ReadLine(), out borrowerId) || !borrowers.Any(b => b.Id == borrowerId))
+                            {
+                                Console.WriteLine("Wrong borrower id. Please try again...");
+                            }
 
-                        //    while (true)
-                        //    {
-                        //        Console.WriteLine("Books list:");
-                        //        var books = bookServices.GetAllBooks();
-                        //        var borrowedBookIds = loanItemService.GetAll().Select(x => x.BookId).ToHashSet();
-                        //        foreach (var book in books)
-                        //        {
-                        //            string isAviable = loanService.IsBookAvailable(book.Id) ? " Aviable" : "Not Aviable";
-                        //            Console.WriteLine($"Id: {book.Id} - Book title: {book.Title}  -  {isAviable}");
-                        //        }
+                            while (true)
+                            {
+                              
+                                Console.WriteLine("Books list:");
+                                var books = bookServices.GetAllBooks();
+                                if (books is null || !books.Any()) throw new ArgumentException("Book list is empty");
 
-                        //        Console.WriteLine("Please choose book id(0-exit):");
-                        //        int bookId;
-                        //        while (!int.TryParse(Console.ReadLine(), out bookId) || bookId != 0 && !books.Any(b => b.Id == bookId))
-                        //        {
-                        //            Console.WriteLine("Wrong book id. Please try again...");
-                        //        }
+                                foreach (var book in books)
+                                {
+                                    bool isAvailable = book.IsAvailable && !selectedBookIds.Contains(book.Id);
+                                    string status = isAvailable ? "Available" : "Not Available";
+                                    Console.WriteLine($"Id: {book.Id} - {book.Title}  -  {status}");
+                                }
 
-                        //        if (bookId == 0)
-                        //        {
-                        //            break;
-                        //        }
-                        //        if (borrowedBookIds.Contains(bookId) && loanItemService.GetByIdLoanItem(bookId).ReturnDate is null)
-                        //        {
-                        //            Console.WriteLine("This book borrowed. Please choose other book");
-                        //            continue;
-                        //        }
-                        //        if (!loanService.IsBookAvailable(bookId))
-                        //        {
-                        //            Console.WriteLine("This book is currently not available.");
-                        //            continue; 
-                        //        }
-                        //        selectedBookIds.Add(bookId);
-                        //        Console.WriteLine($"{books.First(x => x.Id == bookId).Title} choosed.");
+                                Console.WriteLine("Please choose book id (0 to exit):");
+                                int bookId;
+                                while (!int.TryParse(Console.ReadLine(), out bookId) || bookId != 0 && !books.Any(b => b.Id == bookId))
+                                {
+                                    Console.WriteLine("Wrong book id. Please try again...");
+                                }
 
-                        //        Console.WriteLine("Next:");
-                        //        Console.WriteLine("1-Borrow new book");
-                        //        Console.WriteLine("2-Start borrowing process");
+                                if (bookId == 0) break;
 
-                        //        Console.WriteLine("Choose:");
-                        //        string choose = Console.ReadLine();
-                        //        if (choose == "2") break;
+                                if (!bookServices.GetBookById(bookId).IsAvailable)
+                                {
+                                    Console.WriteLine("This book is currently borrowed. Please choose another book.");
+                                    continue;
+                                }
 
+                                selectedBookIds.Add(bookId);
+                                Console.WriteLine($"{books.First(x => x.Id == bookId).Title} chosen.");
 
-                        //    }
+                           
+                                Console.WriteLine("Next:");
+                                Console.WriteLine("1 - Borrow new book");
+                                
+                                Console.WriteLine("2 - Confirm borrowing process");
 
-                        //    if (!selectedBookIds.Any())
-                        //    {
-                        //        throw new ArgumentException("No book was selected");
-                        //    }
+                                Console.WriteLine("Choose:");
+                                string choice = Console.ReadLine() ?? string.Empty;
+                                
+                                if (choice == "2")
+                                {
+                                    break;
+                                }
+                            }
 
-                        //    Loan newLoan = new Loan
-                        //    {
-                        //        BorrowerId = borrowerId,
-                        //        LoanDate = DateTime.UtcNow.AddHours(4),
-                        //        MustReturnDate = DateTime.UtcNow.AddHours(4).AddDays(15),
-                        //        CreatedAt = DateTime.UtcNow.AddHours(4),
-                        //        UpdateAt = DateTime.UtcNow.AddHours(4),
-                        //        LoanItems = selectedBookIds.Select(bookId => new LoanItem { BookId = bookId }).ToList()
-                        //    };
+                            if (!selectedBookIds.Any())
+                            {
+                                throw new ArgumentException("No book was selected.");
+                            }
 
-                        //    loanService.CreateLoan(newLoan);
+                            Loan newLoan = new Loan
+                            {
+                                BorrowerId = borrowerId,
+                                LoanDate = DateTime.UtcNow.AddHours(4),
+                                MustReturnDate = DateTime.UtcNow.AddHours(4).AddDays(15),
+                                CreatedAt = DateTime.UtcNow.AddHours(4),
+                                UpdateAt = DateTime.UtcNow.AddHours(4),
+                                LoanItems = selectedBookIds.Select(bookId => new LoanItem { BookId = bookId }).ToList()
+                            };
 
-                        //    Console.WriteLine("Book borrowed succesfuly");
-                        //}
+                            loanService.CreateLoan(newLoan);
 
+                            Console.WriteLine("Books borrowed successfully.");
+                        }
+                        catch (ArgumentException ex)
+                        {
+                            Console.WriteLine($"Error: {ex.Message}");
+                            goto ReturnBorrowBook;
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Unexpected error: {ex.Message}");
+                            goto ReturnBorrowBook;
+                        }
 
-
-                        //catch (ArgumentException ex)
-                        //{
-                        //    Console.WriteLine($"Error: {ex.Message}");
-                        //    goto ReturnBorrowBook;
-                        //}
-                        //catch (Exception ex)
-                        //{
-                        //    Console.WriteLine($"Error: {ex.Message}");
-                        //    goto ReturnBorrowBook;
-                        //}
+                       
                         break;
                     case "6":
                         ReturnBookBorrow:
@@ -875,14 +875,14 @@ namespace LibraryProject
                             }
 
                             Console.Write("Choose borrower id : ");
-                            int borrowerId;
-                            while (!int.TryParse(Console.ReadLine(), out borrowerId) || !borrowers.Any(b => b.Id == borrowerId))
+                            int borrowerID;
+                            while (!int.TryParse(Console.ReadLine(), out borrowerID) || !borrowers.Any(b => b.Id == borrowerID))
                             {
                                 Console.WriteLine("Wrong borrower id. Please try again...");
                             }
 
 
-                            loanService.ReturnBook(borrowerId);
+                            loanService.ReturnBook(borrowerID);
                             Console.WriteLine("Return time updated");
 
 
@@ -980,7 +980,6 @@ namespace LibraryProject
                         ReturnFilterAuthor:
                         try
                         {
-                            Console.Clear();
                             Console.Write("Search by author: ");
                             var inputs = Console.ReadLine() ?? throw new ArgumentException("Inputs can not be empty or null");
                             
@@ -993,10 +992,12 @@ namespace LibraryProject
                                                         .ToLower()))
                                                         .ToList();
                             var books = new List<BookDtos>();
-                            authors.ForEach(a => books.AddRange(a.Books));
-                            books = books.Distinct().ToList();
+                            authors.ForEach(a => books
+                                   .AddRange(a.Books));
+                            books = books.Distinct()
+                                         .ToList();
                             if (books.Count == 0) throw new KeyNotFoundException("Book not found");
-                            books.ForEach(b => Console.WriteLine(b));
+                            books.ForEach(b => Console.WriteLine($"{b.Id} - {b.Title}"));
 
                           
                         }

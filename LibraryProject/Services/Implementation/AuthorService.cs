@@ -45,20 +45,20 @@ namespace LibraryProject.Services.Implementation
 
         public void Delete(int id)
         {
-            AuthorRepository authorRepository = new AuthorRepository();
-            var author = authorRepository.GetById(id);
+            
+            var author = _authorRepository.GetById(id);
             if (author is null) throw new KeyNotFoundException("Author not found.");
             if(author.Books == null  || author.Books.Count == 0)
             {
-                authorRepository.Remove(author);
-                authorRepository.Commit();
+                _authorRepository.Remove(author);
+                _authorRepository.Commit();
             }
 
             else
             {
-                 authorRepository.RemoveBookAuthorRelations(author);
-                 authorRepository.Remove(author);
-                 authorRepository.Commit();
+                _authorRepository.RemoveBookAuthorRelations(author);
+                _authorRepository.Remove(author);
+                _authorRepository.Commit();
  
 
 
@@ -94,22 +94,19 @@ namespace LibraryProject.Services.Implementation
 
         public void Update(int id, AuthorUpdateDto authorUpdateDto)
         {
-            AuthorRepository authorRepository = new AuthorRepository();
+            
             if (authorUpdateDto is null) throw new ArgumentNullException(nameof(authorUpdateDto));
 
-            var author = authorRepository.GetByIdWithBooks(id);
+            var author = _authorRepository.GetByIdWithBooks(id);
             if (author is null) throw new KeyNotFoundException("Author not found.");
 
             if (string.IsNullOrWhiteSpace( authorUpdateDto.Name)) throw new ArgumentException("Author name cannot be empty.");
 
 
-            
-            var books = authorRepository._appDbContext.Books
-                                                      .Where(a => authorUpdateDto.BookIds
-                                                      .Contains(a.Id))
-                                                      .ToList();
 
-            authorRepository.RemoveBookAuthorRelations(author);
+            var books = _authorRepository.BooksSet(authorUpdateDto.BookIds);
+
+            _authorRepository.RemoveBookAuthorRelations(author);
 
 
             author.Name = authorUpdateDto.Name;
@@ -126,7 +123,7 @@ namespace LibraryProject.Services.Implementation
 
 
 
-            authorRepository.Commit();
+            _authorRepository.Commit();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace LibraryProject.Services.Interface
         void Update(int id, LoanUpdateDto loanUpdateDto);
         void CreateLoan(Loan loan);
         void ReturnBook(int borrowerId);
-        bool IsBookAvailable(int bookId);
+     
 
         List<Borrower> GetDelayedBorrowers();
      
