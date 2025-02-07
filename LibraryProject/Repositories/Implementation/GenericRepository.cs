@@ -6,7 +6,7 @@ namespace LibraryProject.Repositories.Implementation
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity, new()
     {
-        private readonly AppDbContext _appDbContext;
+        public readonly AppDbContext _appDbContext;
         public GenericRepository()
         {
             _appDbContext = new AppDbContext();
@@ -23,11 +23,11 @@ namespace LibraryProject.Repositories.Implementation
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Xəta baş verdi: {ex.Message}");
+                Console.WriteLine($"Eror: {ex.Message}");
 
                 if (ex.InnerException != null)
                 {
-                    Console.WriteLine($"Daxili xəta: {ex.InnerException.Message}");
+                    Console.WriteLine($"Eror: {ex.InnerException.Message}");
                 }
                 throw;
             }

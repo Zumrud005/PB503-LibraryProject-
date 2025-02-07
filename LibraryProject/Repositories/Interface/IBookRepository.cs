@@ -9,8 +9,9 @@ namespace LibraryProject.Repositories.Interface
 {
     public interface IBookRepository :IGenericRepository<Book>
     {
-        List<Book> GetByIds(List<int> ids); 
-        Book GetByIdWithAuthors(int id); 
+        List<Book> GetByIds(List<int> ids);
+        Book GetByIdWithAuthors(int id);
         List<Book> GetAllWithAuthors();
+        bool IsAvailable(int id);
     }
 }

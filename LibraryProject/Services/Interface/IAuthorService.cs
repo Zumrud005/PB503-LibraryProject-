@@ -10,8 +10,8 @@ namespace LibraryProject.Services.Interface
 {
     public interface IAuthorService
     {
-        void Add(AuthorCreateDto authorDto);
-        void Update(int id, AuthorUpdateDto authorDto);
+        void Add(AuthorCreateDto authorCreateDto);
+        void Update(int id, AuthorUpdateDto authorUpdateDto);
         void Delete(int id);
         AuthorGetDto GetAuthorById(int id);
         List<AuthorGetDto> GetAllAuthors();

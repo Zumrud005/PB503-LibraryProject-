@@ -9,10 +9,11 @@ namespace LibraryProject.Services.Interface
 {
     public interface IBookService
     {
-        void Add(BookCreateDto bookDto);
-        void Update(int id, BookUpdateDto bookDto);
+        void Add(BookCreateDto bookCreateDto);
+        void Update(int id, BookUpdateDto bookUpdateDto);
         void Delete(int id);
         BookGetDto GetBookById(int id);
         List<BookGetDto> GetAllBooks();
+        BookGetDto GetMostBorrowedBook();
     }
 }

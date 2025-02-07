@@ -9,5 +9,6 @@ namespace LibraryProject.Repositories.Interface
 {
     public interface ILoanItemRepository :IGenericRepository<LoanItem>
     {
+        
     }
 }

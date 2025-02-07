@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace LibraryProject.DTOs.LoanDto
 {
-    internal class LoanCreateDto
+    public class LoanCreateDto
     {
+        public int BorrowerId { get; set; }
+        public List<int> BookIds { get; set; } = new();
     }
 }

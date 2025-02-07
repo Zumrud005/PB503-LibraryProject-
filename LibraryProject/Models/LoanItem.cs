@@ -10,9 +10,9 @@ namespace LibraryProject.Models
     {
      
         public int BookId { get; set; }
-        public Book Book { get; set; }
+        public Book? Book { get; set; }
         public int LoanId { get; set; }
-        public Loan Loan { get; set; }
+        public Loan? Loan { get; set; }
 
     }
 }

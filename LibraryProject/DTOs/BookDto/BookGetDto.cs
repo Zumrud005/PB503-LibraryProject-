@@ -13,5 +13,8 @@ namespace LibraryProject.DTOs.BookDto
         public string Desc { get; set; }
         public int PublishedYear { get; set; }
         public List<AuthorDtos> Authors { get; set; }
+        public bool IsAvailable { get; set; }
+
+
     }
 }

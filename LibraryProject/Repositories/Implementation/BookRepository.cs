@@ -7,12 +7,7 @@ namespace LibraryProject.Repositories.Implementation
 {
     public class BookRepository : GenericRepository<Book>, IBookRepository
     {
-        public readonly AppDbContext _appDbContext;
-
-        public BookRepository()
-        {
-            _appDbContext = new AppDbContext();
-        }
+       
         public List<Book> GetAllWithAuthors()
          => _appDbContext.Books.Include(x => x.Authors).ToList();
 
@@ -21,5 +16,16 @@ namespace LibraryProject.Repositories.Implementation
 
         public Book GetByIdWithAuthors(int id)
         => _appDbContext.Books.Include(x => x.Authors).FirstOrDefault(x => x.Id == id);
+
+        public bool IsAvailable(int id)
+        => !_appDbContext.LoanItems.Any(li => li.BookId == id && li.Loan.ReturnDate == null);
+
+        public void RemoveBookAuthorRelations(Book book)
+        {
+
+            book.Authors.Clear();
+
+            _appDbContext.SaveChanges();
+        }
     }
 }

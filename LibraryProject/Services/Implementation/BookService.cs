@@ -22,25 +22,27 @@ namespace LibraryProject.Services.Implementation
             _authorRepository = new AuthorRepository();
             _bookRepository = new BookRepository();
         }
-        public void Add(BookCreateDto bookDto)
+        public void Add(BookCreateDto bookCreateDto)
         {
-            if (bookDto == null
-           || string.IsNullOrWhiteSpace(bookDto.Title)
-           || string.IsNullOrWhiteSpace(bookDto.Desc)) throw new ArgumentException("Book titles or book decs can not be null or empty");
+            if (bookCreateDto is null
+           || string.IsNullOrWhiteSpace(bookCreateDto.Title)
+           || string.IsNullOrWhiteSpace(bookCreateDto.Desc)) throw new ArgumentException("Book titles or book decs can not be null or empty");
 
             var book = new Book()
             {
-                Title = bookDto.Title,
-                Description = bookDto.Desc,
-                PublishedYear = bookDto.PublishedYear,
+                Title = bookCreateDto.Title,
+                Description = bookCreateDto.Desc,
+                PublishedYear = bookCreateDto.PublishedYear,
+                CreatedAt = DateTime.UtcNow.AddHours(4),
+                UpdateAt = DateTime.UtcNow.AddHours(4),
                 Authors = new List<Author>()
             };
 
             BookRepository bookRepository = new BookRepository();
             var authors = bookRepository._appDbContext.Authors
-                .Where(a => bookDto.AuthorIds.Contains(a.Id))
+                .Where(a => bookCreateDto.AuthorIds.Contains(a.Id))
                 .ToList();
-            if (authors is null || authors.Count <  bookDto.AuthorIds.Count) throw new ArgumentException("Author(s) not found");
+            if (authors is null || authors.Count <  bookCreateDto.AuthorIds.Count) throw new ArgumentException("Author(s) not found");
 
             foreach (var author in authors)
             {
@@ -50,36 +52,7 @@ namespace LibraryProject.Services.Implementation
 
             bookRepository.Commit();
 
-            //if (bookDto is null) throw new ArgumentNullException(nameof(bookDto));
-
-            //if (string.IsNullOrWhiteSpace(bookDto.Title) || string.IsNullOrWhiteSpace(bookDto.Desc)) throw new ArgumentException("Book title or book descreption cannot be empty.");
-
-            //var authors = _authorRepository.GetByIds(bookDto.AuthorIds).ToList();
-            //var authors = _authorRepository.GetAll().Where(a => bookDto.AuthorIds.Contains(a.Id)).ToList();
-
-            //if (authors is null || authors.Count != bookDto.AuthorIds.Count)
-            //{
-            //    throw new KeyNotFoundException("One or more authors not found.");
-            //}
-            //if (!authors.Any())
-            //{
-            //    throw new InvalidOperationException("No featured authors available.");
-            //}
-
-
-            //var book = new Book
-            //{
-            //    Title = bookDto.Title,
-            //    Description = bookDto.Desc,
-            //    PublishedYear = bookDto.PublishedYear,
-            //    CreatedAt = DateTime.UtcNow.AddHours(4),
-            //    UpdateAt = DateTime.UtcNow.AddHours(4),
-            //    Authors = authors
-            //};
-
-
-            //_bookRepository.Add(book);
-            //_bookRepository.Commit();
+           
         }
 
         public void Delete(int id)
@@ -102,6 +75,7 @@ namespace LibraryProject.Services.Implementation
                 Title = x.Title,
                 Desc = x.Description,
                 PublishedYear = x.PublishedYear,
+                IsAvailable = _bookRepository.IsAvailable(x.Id),
                 Authors = x.Authors.Select(x => new AuthorDtos { Id = x.Id, Name = x.Name }).ToList()
             }).ToList();
         }
@@ -117,29 +91,77 @@ namespace LibraryProject.Services.Implementation
                 Title = book.Title,
                 Desc = book.Description,
                 PublishedYear = book.PublishedYear,
+                IsAvailable = _bookRepository.IsAvailable(book.Id),
                 Authors = book.Authors.Select(x => new AuthorDtos { Id = x.Id, Name = x.Name }).ToList()
             };
         }
 
-        public void Update(int id, BookUpdateDto bookDto)
+        public void Update(int id, BookUpdateDto bookUpdateDto)
         {
-            if (bookDto is null) throw new ArgumentNullException(nameof(bookDto));
+            BookRepository bookRepository = new BookRepository();
+            if (bookUpdateDto is null) throw new ArgumentNullException(nameof(bookUpdateDto));
 
-            var book = _bookRepository.GetById(id);
+           
+            var book = bookRepository.GetByIdWithAuthors(id);
             if (book is null) throw new KeyNotFoundException("Book not found.");
 
-            if (string.IsNullOrWhiteSpace(bookDto.Title) || string.IsNullOrWhiteSpace(bookDto.Desc)) throw new ArgumentException("Book title or book descreption cannot be empty.");
+            if (string.IsNullOrWhiteSpace(bookUpdateDto.Title) || string.IsNullOrWhiteSpace(bookUpdateDto.Desc)) throw new ArgumentException("Book title or book descreption cannot be empty.");
 
-            var authors = _authorRepository.GetByIds(bookDto.AuthorIds);
-            if (authors is null || !authors.Any())  throw new InvalidOperationException("At least one valid author must be selected.");
+           
+            bookRepository.RemoveBookAuthorRelations(book);
 
-            book.Title = bookDto.Title;
-            book.Description = bookDto.Desc;
-            book.PublishedYear = bookDto.PublishedYear;
-            book.Authors = authors;
+            book.Title = bookUpdateDto.Title;
+            book.Description = bookUpdateDto.Desc;
+            book.PublishedYear = bookUpdateDto.PublishedYear;
+         
+            
             book.UpdateAt = DateTime.UtcNow.AddHours(4);
 
-            _bookRepository.Commit();
+            var authors = bookRepository._appDbContext.Authors.Where(a => bookUpdateDto.AuthorIds
+                                                              .Contains(a.Id))
+                                                              .ToList();
+            if (authors is null || authors.Count < bookUpdateDto.AuthorIds.Count) throw new KeyNotFoundException("Author(s) not found");
+
+            foreach (var author in authors)
+            {
+                book.Authors.Add(author);
+            }
+
+            bookRepository.Commit();
         }
+
+        public BookGetDto GetMostBorrowedBook()
+        {
+            LoanItemRepository loanItemRepository = new LoanItemRepository();
+            BookRepository bookRepository = new BookRepository();
+
+            var loanItems = loanItemRepository.GetAll();
+
+            if (loanItems == null || !loanItems.Any())
+                throw new InvalidOperationException("No books have been borrowed!");
+
+            
+            var mostBorrowedBookId = loanItems
+                .GroupBy(li => li.BookId)
+                .OrderByDescending(x => x.Count())
+                .Select(x => x.Key)
+                .FirstOrDefault();
+
+            var mostBorrowedBook = bookRepository.GetById(mostBorrowedBookId);
+
+            if (mostBorrowedBook is null)
+                throw new KeyNotFoundException("Book not found");
+
+            return new BookGetDto
+            {
+                Id = mostBorrowedBook.Id,
+                Title = mostBorrowedBook.Title,
+                Desc = mostBorrowedBook.Description,
+                PublishedYear = mostBorrowedBook.PublishedYear,
+                IsAvailable = _bookRepository.IsAvailable(mostBorrowedBook.Id),
+
+            };
+        }
+
     }
 }

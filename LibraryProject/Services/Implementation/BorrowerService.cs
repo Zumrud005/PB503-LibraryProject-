@@ -49,11 +49,12 @@ namespace LibraryProject.Services.Implementation
 
         public void Delete(int id)
         {
-            var borrower = _borrowerRepository.GetById(id);
+            BorrowerRepository repository = new BorrowerRepository();
+            var borrower = repository.GetById(id);
             if (borrower is null)
                 throw new KeyNotFoundException($"Borrower ID {id} not found!");
-
-            var loans = _loanRepository.GetAll().Where(l => l.BorrowerId == id).ToList();
+            LoanRepository loanRepository = new LoanRepository();
+            var loans = loanRepository.GetAll().Where(l => l.BorrowerId == id).ToList();
 
          
             bool hasUnreturnedBooks = loans.Any(l => l.ReturnDate == null);
@@ -62,20 +63,21 @@ namespace LibraryProject.Services.Implementation
                 throw new InvalidOperationException("There are books that Borrower has not returned! Update is not possible.");
             }
 
-            
+            LoanItemRepository loanItemRepository = new LoanItemRepository();
             foreach (var loan in loans)
             {
-                var loanItems = _loanItemRepository.GetAll().Where(li => li.LoanId == loan.Id).ToList();
+                
+                var loanItems = loanItemRepository.GetAll().Where(li => li.LoanId == loan.Id).ToList();
                 foreach (var loanItem in loanItems)
                 {
-                    _loanItemRepository.Remove(loanItem);
+                    loanItemRepository.Remove(loanItem);
                 }
-                _loanRepository.Remove(loan);
+                loanRepository.Remove(loan);
             }
 
       
-            _borrowerRepository.Remove(borrower);
-            _borrowerRepository.Commit();
+            repository.Remove(borrower);
+            repository.Commit();
 
             
         }
@@ -99,10 +101,21 @@ namespace LibraryProject.Services.Implementation
                 throw new KeyNotFoundException($"Borrower with id {id} not found.");
             }
 
-            var loans = _loanRepository.GetAll().Where(l => l.BorrowerId == id).ToList();
-            var loanItems = _loanItemRepository.GetAll().Where(li => loans.Select(l => l.Id).Contains(li.LoanId)).ToList();
-            var bookIds = loanItems.Select(li => li.BookId).Distinct().ToList();
-            var books = _bookRepository.GetAll().Where(b => bookIds.Contains(b.Id)).ToList();
+            var loans = _loanRepository.GetAll()
+                                       .Where(l => l.BorrowerId == id)
+                                       .ToList();
+            var loanItems = _loanItemRepository.GetAll()
+                                               .Where(li => loans
+                                               .Select(l => l.Id)
+                                               .Contains(li.LoanId))
+                                               .ToList();
+            var bookIds = loanItems.Select(li => li.BookId)
+                                   .Distinct()
+                                   .ToList();
+            var books = _bookRepository.GetAll()
+                                        .Where(b => bookIds
+                                        .Contains(b.Id))
+                                        .ToList();
 
             return new BorrowerGetDto
             {
@@ -124,18 +137,22 @@ namespace LibraryProject.Services.Implementation
             if (dto is null) throw new ArgumentNullException(nameof(dto));
             if (string.IsNullOrWhiteSpace(dto.Name) || string.IsNullOrWhiteSpace(dto.Email)) throw new ArgumentException("Borrower name or email cannot be empty.");
 
-            var borrower = _borrowerRepository.GetById(id);
+            BorrowerRepository repository = new BorrowerRepository();
+            var borrower = repository.GetById(id);
             if (borrower is null)
             {
                 throw new KeyNotFoundException($"Borrower with id {id} not found.");
             }
 
 
-         
-            var loans = _loanRepository.GetAll().Where(l => l.BorrowerId == id).ToList();
+            LoanRepository loanRepository = new LoanRepository();
+            var loans = loanRepository.GetAll()
+                                     
+                                      .Where(l => l.BorrowerId == id)
+                                      .ToList();
 
-            
-            var loanItems = _loanItemRepository.GetAll().Where(li => loans.Select(l => l.Id).Contains(li.LoanId)).ToList();
+            LoanItemRepository loanItemRepository = new LoanItemRepository();
+            var loanItems = loanItemRepository.GetAll().Where(li => loans.Select(l => l.Id).Contains(li.LoanId)).ToList();
 
           
             bool hasUnreturnedBooks = loans.Any(l => l.ReturnDate == null);
@@ -149,16 +166,64 @@ namespace LibraryProject.Services.Implementation
             borrower.UpdateAt = DateTime.UtcNow.AddHours(4);
 
           
-            foreach (var loan in loans)
-            {
-                loan.Borrower.Name = dto.Name;
-                loan.Borrower.Email = dto.Email;
-            }
+            
 
            
-            _borrowerRepository.Commit();
+            repository.Commit();
 
            
         }
+
+
+        public List<BorrowerBooksDto> GetAllBorrowedBooks()
+        {
+            LoanRepository loanRepository = new LoanRepository();
+            LoanItemRepository loanItemRepository = new LoanItemRepository();
+            BookRepository bookRepository = new BookRepository();
+            BorrowerRepository borrowerRepository = new BorrowerRepository();
+
+          
+            var allLoans = loanRepository.GetAll();
+
+         
+            if (!allLoans.Any()) return new List<BorrowerBooksDto>();
+
+          
+            var loanItems = loanItemRepository.GetAll()
+                .Where(li => allLoans.Select(l => l.Id).Contains(li.LoanId))
+                .ToList();
+
+            
+            var books = bookRepository.GetAll()
+                .Where(b => loanItems.Select(li => li.BookId).Contains(b.Id))
+                .ToList();
+
+       
+            var borrowers = borrowerRepository.GetAll()
+                .Where(b => allLoans.Select(l => l.BorrowerId).Contains(b.Id))
+                .ToList();
+
+           
+            var result = borrowers.Select(borrower => new BorrowerBooksDto
+            {
+                BorrowerId = borrower.Id,
+                BorrowerName = borrower.Name,
+                BorrowedBooks = loanItems
+                    .Where(li => allLoans.Any(l => l.BorrowerId == borrower.Id && l.Id == li.LoanId))
+                    .Select(li => new BookGetDto
+                    {
+                        Id = li.BookId,
+                        Title = books.FirstOrDefault(b => b.Id == li.BookId)?.Title
+                        
+                    })
+                    .ToList()
+            }).ToList();
+
+            return result;
+        }
+
+
+       
+
     }
 }

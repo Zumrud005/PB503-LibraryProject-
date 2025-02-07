@@ -1,6 +1,7 @@
 ﻿using LibraryProject.Data;
 using LibraryProject.DTOs;
 using LibraryProject.DTOs.AuthorDto;
+using LibraryProject.DTOs.BookDto;
 using LibraryProject.Models;
 using LibraryProject.Repositories.Implementation;
 using LibraryProject.Repositories.Interface;
@@ -23,17 +24,17 @@ namespace LibraryProject.Services.Implementation
             _bookRepository = new BookRepository(); 
             _authorRepository = new AuthorRepository();
         }
-        public void Add(AuthorCreateDto authorDto)
+        public void Add(AuthorCreateDto authorCreateDto)
         {
-            if (authorDto is null) throw new ArgumentNullException(nameof(authorDto));
+            if (authorCreateDto is null) throw new ArgumentNullException(nameof(authorCreateDto));
 
-            if (string.IsNullOrWhiteSpace(authorDto.Name)) throw new ArgumentException("Author name cannot be empty.");
+            if (string.IsNullOrWhiteSpace(authorCreateDto.Name)) throw new ArgumentException("Author name cannot be empty.");
 
             
 
             var author = new Author
             {
-                Name = authorDto.Name,
+                Name = authorCreateDto.Name,
                 CreatedAt = DateTime.UtcNow.AddHours(4),
                 UpdateAt = DateTime.UtcNow.AddHours(4)
             };
@@ -44,14 +45,25 @@ namespace LibraryProject.Services.Implementation
 
         public void Delete(int id)
         {
-            var author = _authorRepository.GetById(id);
+            AuthorRepository authorRepository = new AuthorRepository();
+            var author = authorRepository.GetById(id);
             if (author is null) throw new KeyNotFoundException("Author not found.");
+            if(author.Books == null  || author.Books.Count == 0)
+            {
+                authorRepository.Remove(author);
+                authorRepository.Commit();
+            }
 
-            
-            _authorRepository.RemoveBookAuthorRelations(author);
+            else
+            {
+                 authorRepository.RemoveBookAuthorRelations(author);
+                 authorRepository.Remove(author);
+                 authorRepository.Commit();
+ 
 
-           
-            _authorRepository.Remove(author);
+
+            }
+        
         }
 
         public List<AuthorGetDto> GetAllAuthors()
@@ -80,31 +92,41 @@ namespace LibraryProject.Services.Implementation
             };
         }
 
-        public void Update(int id, AuthorUpdateDto authorDto)
+        public void Update(int id, AuthorUpdateDto authorUpdateDto)
         {
-            if (authorDto is null) throw new ArgumentNullException(nameof(authorDto));
+            AuthorRepository authorRepository = new AuthorRepository();
+            if (authorUpdateDto is null) throw new ArgumentNullException(nameof(authorUpdateDto));
 
-            var author = _authorRepository.GetById(id);
+            var author = authorRepository.GetByIdWithBooks(id);
             if (author is null) throw new KeyNotFoundException("Author not found.");
 
-            if (string.IsNullOrWhiteSpace(authorDto.Name)) throw new ArgumentException("Author name cannot be empty.");
+            if (string.IsNullOrWhiteSpace( authorUpdateDto.Name)) throw new ArgumentException("Author name cannot be empty.");
+
 
             
-            var books = _bookRepository.GetByIds(authorDto.BookIds);
-            if (books is null || !books.Any()) throw new InvalidOperationException("At least one valid book must be selected.");
+            var books = authorRepository._appDbContext.Books
+                                                      .Where(a => authorUpdateDto.BookIds
+                                                      .Contains(a.Id))
+                                                      .ToList();
 
-           
-            author.Name = authorDto.Name;
+            authorRepository.RemoveBookAuthorRelations(author);
+
+
+            author.Name = authorUpdateDto.Name;
             author.UpdateAt = DateTime.UtcNow.AddHours(4);
+            if (books is null || books.Count < authorUpdateDto.BookIds.Count) throw new KeyNotFoundException("Books not found");
+
+            foreach (var book in books)
+            {
+                author.Books.Add(book);
+
+            }
 
 
 
-            _authorRepository.RemoveBookAuthorRelations(author);
 
-            
-            author.Books = books;
 
-            _authorRepository.Commit();
+            authorRepository.Commit();
         }
     }
 }

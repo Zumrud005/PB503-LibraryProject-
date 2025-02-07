@@ -12,12 +12,7 @@ namespace LibraryProject.Repositories.Implementation
 {
     public class AuthorRepository : GenericRepository<Author>, IAuthorRepository
     {
-        private readonly AppDbContext _appDbContext;
-
-        public AuthorRepository()
-        {
-            _appDbContext = new AppDbContext();
-        }
+        
         public List<Author> GetAllWithBooks()
         => _appDbContext.Authors.Include(a => a.Books).ToList();
 

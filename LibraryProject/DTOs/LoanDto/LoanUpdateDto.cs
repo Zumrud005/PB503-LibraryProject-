@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace LibraryProject.DTOs.LoanDto
 {
-    internal class LoanUpdateDto
+    public class LoanUpdateDto
     {
+        public DateTime? ReturnDate { get; set; }
     }
 }

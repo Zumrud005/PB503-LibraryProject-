@@ -1,4 +1,5 @@
 ﻿using LibraryProject.DTOs.BorrowerDto;
+using LibraryProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace LibraryProject.Services.Interface
         void Create(BorrowerCreateDto dto);
         void Update(int id, BorrowerUpdateDto dto);
         void Delete(int id);
+        List<BorrowerBooksDto> GetAllBorrowedBooks();
+
     }
 }
